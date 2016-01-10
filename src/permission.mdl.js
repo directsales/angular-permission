@@ -27,11 +27,17 @@
             $rootScope.$broadcast('$stateChangePermissionDenied', toState, toParams);
             if (permissions.redirectTo) {
               var redirectTo = permissions.redirectTo;
-              var targetState = $state.target(redirectTo);
-              return $transition$.redirect(targetState); 
+              if (angular.isFunction(redirectTo)) {
+                redirectTo = redirectTo();
+              }
+              return $q.when(permissions.redirectTo, function (redirectState) {
+                var targetState = $state.target(redirectState);
+                return $transition$.redirect(targetState);
+              });
             } else {
               return false;
             }
+          })
           })
       });
     }]);
