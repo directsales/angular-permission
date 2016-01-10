@@ -32,13 +32,12 @@
               }
               return $q.when(permissions.redirectTo, function (redirectState) {
                 var targetState = $state.target(redirectState);
-                return $transition$.redirect(targetState);
+                return targetState;
               });
             } else {
               return false;
             }
           })
-          })
-      });
+      })
     }]);
 }());
