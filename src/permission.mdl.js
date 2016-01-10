@@ -15,7 +15,7 @@
       }, 
       function ($transition$, $state) {
         var toState = $transition$.to();
-        var permissions = getPermissions(to);
+        var permissions = getPermissions(toState);
         var toParams = $transition$.params();
 
         $rootScope.$broadcast('$stateChangePermissionStart', toState, toParams);
