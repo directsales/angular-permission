@@ -20,8 +20,7 @@ module.exports = function(config) {
     files: [
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'vendor/ui-router-1.0alpha/angular-ui-router.js',
-      'node_modules/phantomjs-polyfill/bind-polyfill.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.js',
       'src/**/*.mdl.js',
       'src/**/*.drv.js',
       'src/**/*.svc.js',
